@@ -34,7 +34,7 @@ public class Group {
         if(getPlayers().size() <= number){return getPlayers();}
         List<Player> returnArray = new ArrayList<>();
 
-        List<Player> players1 = getPlayers();
+        List<Player> players1 = new ArrayList<>(getPlayers());
         for (int j = 0; j < number; j++) {
             Player last = players1.get(0);
             for (Player player: players1) {
@@ -68,7 +68,14 @@ public class Group {
         int group2Score = 0;
         List<Player> thisTop5 = getTop(5);
         List<Player> otherTop5 = other.getTop(5);
-        for (int i = 0; i < 5; i++) {
+        int length = 5;
+        if (thisTop5.size() < length){
+            length = thisTop5.size();
+        }
+        if(otherTop5.size() < length){
+            length = otherTop5.size();
+        }
+        for (int i = 0; i < length; i++) {
             if (thisTop5.get(i).getScore() >= otherTop5.get(i).getScore()){
                 group1Score++;
             }else {
