@@ -7,6 +7,13 @@ public class Plumber extends Employee{
         this.truckMeterLength = truckMeterLength;
     }
 
+    public void fillTrucks(int hours){
+        for (int i = 0; i <= hours; i++){
+            this.work();
+        }
+    }
+    // ????
+
     public int getTruckMeterLength() {
         return truckMeterLength;
     }
